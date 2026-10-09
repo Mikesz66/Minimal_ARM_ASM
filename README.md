@@ -28,5 +28,14 @@ OCD_MCU=openocd_target_cfg      # e.g. stm32g0x.cfg
 OCD_INTERFACE=your_debugger     # e.g. stlink.cfg
 LINK_SCRIPT=your_linker_script  # e.g. linker.ld
 ```
+## Debug with GDB
 
-## Made for NUCLEO-G071RB board, but with adjusted MEMORY part of the link.ld file and make options should work with any ARM Cortex-M board.
+`arm-none-eabi-gdb -x debug.gdb your_target.elf`
+
+Default target: `main.elf`
+
+`debug.gdb` only connects to OpenOCD and halts the processor
+
+## Supported devices
+
+Tested on NUCLEO-G071RB board with ARM Cortex-M0+ mcu and XIAO SAMD21, but with changes in memory map in link.ld and make options, should work with any ARM Cortex-M board with SWD debugging.
